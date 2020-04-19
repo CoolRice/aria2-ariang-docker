@@ -44,6 +44,12 @@ RUN mkdir /usr/local/www/aria2/Download \
   && rm -rf AriaNg-${version}.zip \
   && chmod -R 755 /usr/local/www/aria2
 
+COPY updateTracker.sh /bin/updateTracker.sh
+RUN chmod +x /bin/updateTracker.sh
+
+RUN echo '*/3 * * * * /bin/updateTracker.sh' >> /etc/crontabs/root
+RUN crond
+
 # folder for storing ssl keys
 VOLUME /app/conf/key
 

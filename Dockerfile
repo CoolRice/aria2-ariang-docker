@@ -47,7 +47,7 @@ RUN mkdir /usr/local/www/aria2/Download \
 COPY updateTracker.sh /bin/
 RUN chmod +x /bin/updateTracker.sh
 
-RUN echo '40 7 * * * /bin/updateTracker.sh' >> /etc/crontabs/root
+RUN echo '15 8 * * * /bin/updateTracker.sh' >> /etc/crontabs/root
 RUN crond
 
 # folder for storing ssl keys

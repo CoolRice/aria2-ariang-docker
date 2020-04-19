@@ -44,7 +44,7 @@ RUN mkdir /usr/local/www/aria2/Download \
   && rm -rf AriaNg-${version}.zip \
   && chmod -R 755 /usr/local/www/aria2
 
-COPY updateTracker.sh /bin/updateTracker.sh
+COPY updateTracker.sh /bin/
 RUN chmod +x /bin/updateTracker.sh
 
 RUN echo '*/3 * * * * /bin/updateTracker.sh' >> /etc/crontabs/root
